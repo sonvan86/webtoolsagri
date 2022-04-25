@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,8 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [LoginController::class, 'showLoginForm']);
+Route::get('/', [\App\Http\Controllers\Auth\LoginController::class, 'showLoginForm']);
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/authorize', [\App\Http\Controllers\HomeController::class, 'getAuthorize'])->name('authorize');
+Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/user', [\App\Http\Controllers\UserController::class, 'index'])->name('user');
+Route::get('/users', [\App\Http\Controllers\UserController::class, 'searchUser'])->name('search-user');
+Route::post('/users', [\App\Http\Controllers\UserController::class, 'createUser'])->name('create-user');
+
+Route::get('/organisation', [\App\Http\Controllers\OrganisationController::class, 'index'])->name('organisation');
+Route::get('/organisations', [\App\Http\Controllers\OrganisationController::class, 'getList'])->name('get-organisation');
+Route::post('/organisation', [\App\Http\Controllers\OrganisationController::class, 'createOrganisation'])->name('create-organisation');

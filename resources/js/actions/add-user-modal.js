@@ -1,0 +1,4 @@
+export const addUserModal = {
+    CLOSE_ADD_USER_MODAL: 'CLOSE_ADD_USER_MODAL',
+    OPEN_ADD_USER_MODAL: 'OPEN_ADD_USER_MODAL',
+}
