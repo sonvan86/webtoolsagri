@@ -11,7 +11,10 @@ class User extends Authenticatable
 {
     use HasFactory;
     use Notifiable;
-
+    
+    const ADMIN_USER = 'admin';
+    const EMPLOYEE_USER = 'employee';
+    
     /**
      * The attributes that are mass assignable.
      *
@@ -21,6 +24,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'organisation',
+        'contract_started_at',
+        'type',
     ];
 
     /**
